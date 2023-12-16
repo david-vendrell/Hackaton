@@ -16,6 +16,8 @@ class Controller:
                 classification = ChatGPT().get_classification(user, content)
                 print(classification)
                 answer = ChatGPT().get_answer(user, content,str(classification["category"]))
+                user.record.append({"role":"user", "content": content})
+                user.record.append({"role":"assistant", "content": answer})
                 return answer
                 
         except Exception as e:

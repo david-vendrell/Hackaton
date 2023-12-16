@@ -33,7 +33,8 @@ Pertenece a esta categoría todo mensaje enviado por el user que no pertenezca a
     ''',
     
     "2": '''
-    
+        Devuelve la informacion de esta pagina web
+        https://salutsexual.sidastudi.org/ca/
     
     ''',
     "3": '''
