@@ -51,4 +51,5 @@ Pertenece a esta categoría todo mensaje enviado por el user que no pertenezca a
 class Prompts:
     def get_prompt(self, key):
         return prompts[key]
+        return ""
         

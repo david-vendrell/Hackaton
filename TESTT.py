@@ -75,3 +75,13 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+
+
+'''    buttons = [["Començar"]]
+    await update.message.reply_text(
+        "Benvingut al SexEd Bot, em dic Mara i estic aqui per ajudar-te!\n\n"
+        "Pots cancelar en qualsevol moment escribint la comanda /cancel\n\n"
+        "Ara començarem amb una serie de preguntes per conèixer-te millor", reply_markup=ReplyKeyboardMarkup(buttons, one_time_keyboard=False, input_field_placeholder="Prem el botó per començar!"))
+    '''

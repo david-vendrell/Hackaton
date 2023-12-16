@@ -2,10 +2,12 @@ import pickle
 from redis_manager import RedisManager
 class User:
     def __init__(self):
+        self.id = ""
         self.name = ""
         self.gender = ""
         self.age = -1
-        self.height = -1
+        self.email = ""
+        self.blocked = False
         
         #Record
         self.record = []
@@ -22,7 +24,7 @@ class UserManager:
                 return
 
             pickle_obj = pickle.dumps(user)
-            RedisManager().set(user.name, pickle_obj)
+            RedisManager().set(user.id, pickle_obj)
         except Exception as e:
             print("Error in save_user: " + str(e))
     

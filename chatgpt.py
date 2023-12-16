@@ -57,6 +57,7 @@ class ChatGPT:
     def get_classification(self, user, query):
         try:
             messages = self._get_structure(user, query, "classification")
+            print(messages)
             return json.loads(self.get_response(messages))
             
         except Exception as e:
