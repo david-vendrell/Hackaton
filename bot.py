@@ -16,7 +16,7 @@ bot.
 """
 
 import logging
-
+from controller import Controller
 from telegram import ForceReply, Update
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 
@@ -48,7 +48,8 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Echo the user message."""
-    await update.message.reply_text(update.message.text)
+    response = Controller().handle_request(update.message.text, "marcos")
+    await update.message.reply_text(response)
 
 
 def main() -> None:

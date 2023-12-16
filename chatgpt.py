@@ -10,6 +10,9 @@ class ChatGPT:
 
     def get_response(self, messages):
         try:
+            print("Holaaaa")   
+            
+            print("Message: " + str(messages))
             response = openai.chat.completions.create(
                 model="gpt-4",  # Reemplaza "gpt-4" con el nombre real del motor de GPT-4
                 messages=messages,  
@@ -18,14 +21,15 @@ class ChatGPT:
             )
             print(response.choices[0].message.content)
             
-            return json.loads(response.choices[0].message.content.strip())
+            return response.choices[0].message.content.strip()
             
-        except Exception as e:
-            print("Error: " + str(e))
+        except Exception as e:  
+            print("Error in get_response: " + str(e))
             
     def _get_structure(self, user, query, category):
         try:
-            structure = Prompts().get_prompt(category)
+            messages = []
+            structure = Prompts().get_prompt(category) 
             messages = [
                 {
                     "role": "system",
@@ -34,17 +38,18 @@ class ChatGPT:
             ]
             messages += user.record
             content = [{
-                "role" : "user",
+                "role" : "user",    
                 "content": query
             }]
             messages += content
-            
+            return messages
         except Exception as e:
             print("Error in _get_structure: " + str(e))
             
     def get_answer(self, user, query, category):
         try:
-            messages = self._get_structure(user, query, category)
+            messages = [{"role":"system", "content": "Has de respondre en catalá."}]
+            messages += self._get_structure(user, query, category)
             return self.get_response(messages)
         except Exception as e:
             print("Error in get_answer: " + str(e))
@@ -52,7 +57,7 @@ class ChatGPT:
     def get_classification(self, user, query):
         try:
             messages = self._get_structure(user, query, "classification")
-            return self.get_response(messages)
+            return json.loads(self.get_response(messages))
             
         except Exception as e:
             print("Error in get_classification: " + str(e))

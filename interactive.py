@@ -1,5 +1,6 @@
 from controller import Controller
 from colorama import init, Fore, Style
+from user import UserManager, User
 import threading
 
 
@@ -14,7 +15,12 @@ while inp not in ["javi","marc","david","marcos"]:
 
 
 if inp == "marcos":
-    name = "marcos_roca"
+    user = User()
+    user.name =  "marcos"
+    user.age = 20
+    user.height = 180
+    user.gender = "male"
+    UserManager().save_user(user)
 
 elif inp == "marc":
     name = "marc"
@@ -33,7 +39,7 @@ while True:
         if not linea:
             break
         
-        t = threading.Thread(target=Controller().handle_request, args=(linea, name,))
+        t = threading.Thread(target=Controller().handle_request, args=(linea, user.name,))
         t.start()
         
     except EOFError:

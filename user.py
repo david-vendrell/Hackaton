@@ -22,26 +22,24 @@ class UserManager:
                 return
 
             pickle_obj = pickle.dumps(user)
-            RedisManager().set(user.id, pickle_obj)
+            RedisManager().set(user.name, pickle_obj)
         except Exception as e:
             print("Error in save_user: " + str(e))
     
     def load_user(self, id):
+        user = None
+        value = RedisManager().get(id)
+        user = pickle.loads(value)
+        new_user = User()
         try:
-            user = None
-            value = RedisManager().get(id)
-            user = pickle.loads(value)
-            new_user = User()
-            try:
-                for attr in vars(user):
-                    try:
-                        setattr(new_user, attr, vars(user)[attr])
-                    except Exception as e:
-                        print(e)
-                        pass
-            except Exception as e:
-                print("error in load user")
-                return new_user
-            pass
+            for attr in vars(user):
+                try:
+                    setattr(new_user, attr, vars(user)[attr])
+                except Exception as e:
+                    print(e)
+                    pass
+            return new_user
         except Exception as e:
-            print("Error in load_user: " + str(e))
+            print("error in load user")
+            print(e)
+        return user 
