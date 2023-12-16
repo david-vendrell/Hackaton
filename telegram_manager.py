@@ -27,6 +27,7 @@ from telegram.ext import (
     filters,
 )
 from user import UserManager
+from controller import Controller
 
 # Enable logging
 logging.basicConfig(
@@ -109,22 +110,28 @@ async def handle_mara(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
         await update.message.reply_text("Panel de opciones para 'mara':", reply_markup=reply_markup)
 
 
+async def handle_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    print("Message: " + str(update.message.text))
+    response = Controller().handle_request(update.message.text, "marcos")
+    await update.message.reply_text(response)
 
 
 def main() -> None:
-    print("Hola")
     """Run the bot."""
     # Create the Application and pass it your bot's token.
     application = Application.builder().token("6555434306:AAEMzna2BPLeoC7ggyauyWFIZFW4ut3FKXI").build()
+    
+    print("Hey")
+    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_query))
+    print("Heyyyyyy")
 
     # Si escribe "mara" en el chat, se ejecuta la función handle_mara
     mara_message_handler = MessageHandler(filters.Regex(r'(?i)\bmara\b'), handle_mara)
     application.add_handler(mara_message_handler)
 
-    
 
     # Add conversation handler with the states GENDER, PHOTO, LOCATION and BIO
-    conv_handler = ConversationHandler(
+    onboarding_handler = ConversationHandler(
     entry_points=[CommandHandler("start", start)],
     states={
         ASK_NAME: [MessageHandler(filters.TEXT & ~filters.COMMAND, ask_name)],
@@ -134,9 +141,10 @@ def main() -> None:
         END: [MessageHandler(filters.TEXT & ~filters.COMMAND, end)],
     },
     fallbacks=[CommandHandler("cancel", cancel)],
-)
+    )
+    
+    application.add_handler(onboarding_handler)
 
-    application.add_handler(conv_handler)
 
     # Run the bot until the user presses Ctrl-C
     application.run_polling(allowed_updates=Update.ALL_TYPES)
