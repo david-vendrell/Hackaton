@@ -1,5 +1,5 @@
 from flask import Flask, request, send_file, redirect, jsonify, json, current_app
-
+from controller import Controller
 import pytz
 import json
 import threading
@@ -13,6 +13,9 @@ app = Flask(__name__)
 @app.route('/', methods=['POST'])
 def test_request():
     try:
+        type = request.json[""]
+        content = request.json[""]
+        Controller().handle_request(type, content)
         pass
     except Exception as e:
         print(e)
