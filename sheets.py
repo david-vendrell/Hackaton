@@ -3,11 +3,12 @@ import logging
 import pytz
 import google.auth
 from googleapiclient import discovery
+from google.oauth2 import service_account
 
 from user import UserManager
 
+SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 credentials, project = google.auth.default()
-
 
 class SheetManager:
     

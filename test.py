@@ -1,19 +1,21 @@
-from telegram.ext import Updater, MessageHandler, Filters
+import csv
+import json
 
-def handle_message(update, context):
-    chat_id = update.message.chat_id
-    print("Chat ID:", chat_id)
+inp = input()
 
-def main():
-    bot_token = '6490589708:AAERNMDkOlGbS6TXrlnKyGLUlWHwafIxozg'  # Reemplaza esto con tu token real de bot
-    updater = Updater(token=bot_token, use_context=True)
+if inp == "0":
+    with open('enfermedades.csv', 'r') as csvfile:
+        data = {}
+        reader = csv.reader(csvfile)
+        next(reader)  # Saltar el encabezado si existe
+        
+        for row in reader:
+            if 7 <= reader.line_num <= 27:
+                data[row[1]] = {}
+                data[row[1]]["sitomas"] = row[2] #Columna B (índice 1)
+                data[row[1]]["prevencion"] = row[3] #Columna C (índice 2)
+                data[row[1]]["tratamiento"] = row[4] #Columna D (índice 3)
+        
+        print(json.dumps(data, indent=3))
 
-    dispatcher = updater.dispatcher
-    message_handler = MessageHandler(Filters.text & (~Filters.command), handle_message)
-    dispatcher.add_handler(message_handler)
-
-    updater.start_polling()
-    updater.idle()  # Esto mantendrá al bot en ejecución hasta que lo detengas manualmente
-
-if __name__ == '__main__':
-    main()
+    

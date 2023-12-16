@@ -1,0 +1,82 @@
+{
+   "virus_del_papiloma_huma": {
+      "sitomas": "Lesions a la pell i les mucoses dels genitals, com ara verrues genitals, c\u00e0ncer de coll uter\u00ed, c\u00e0ncer de penis i altres c\u00e0ncers genitals",
+      "prevencion": "Vacunaci\u00f3, preservatiu, relacions sexuals sense penetraci\u00f3",
+      "tratamiento": "Vacunaci\u00f3, tractament amb cremes o medicaments orals"
+   },
+   "chlamydia": {
+      "sitomas": "Secreci\u00f3n vaginal, dolor al orinar, ardor al orinar.",
+      "prevencion": "Uso de preservativos, relaciones sexuales monog\u00e1micas, pruebas regulares.",
+      "tratamiento": "Antibi\u00f3ticos."
+   },
+   "gonorrea": {
+      "sitomas": "Secreci\u00f3n vaginal o uretral, dolor al orinar.",
+      "prevencion": "Uso de preservativos, relaciones sexuales monog\u00e1micas, pruebas regulares.",
+      "tratamiento": "Antibi\u00f3ticos."
+   },
+   "tricomoniasis": {
+      "sitomas": "Secreci\u00f3n vaginal amarillenta o verdosa, picor vaginal, dolor al orinar.",
+      "prevencion": "Uso de preservativos, relaciones sexuales monog\u00e1micas, pruebas regulares.",
+      "tratamiento": "Antibi\u00f3ticos."
+   },
+   "herpes_genital": {
+      "sitomas": "Llagas genitales, dolor al orinar, picor genital.",
+      "prevencion": "Uso de preservativos, relaciones sexuales monog\u00e1micas.",
+      "tratamiento": "No hay cura, pero se pueden tratar los s\u00edntomas."
+   },
+   "citomegalovirus": {
+      "sitomas": "S\u00edmptomes lleus o inexistents, per\u00f2 pot causar infeccions m\u00e9s greus en persones immunodeprimides",
+      "prevencion": "Preservatiu, relacions sexuals sense penetraci\u00f3",
+      "tratamiento": "No hi ha tractament curatiu, per\u00f2 els medicaments poden ajudar a controlar els s\u00edmptomes"
+   },
+   "infeccion_por_clamidia_pelvi": {
+      "sitomas": "Dolor abdominal, febre, secrecions vaginals, dolor a la micci\u00f3",
+      "prevencion": "Preservatiu, relacions sexuals sense penetraci\u00f3",
+      "tratamiento": "Antibi\u00f2tics"
+   },
+   "sindrome_de_herpes_toxico": {
+      "sitomas": "Erupci\u00f3 cut\u00e0nia amb ampolles, febre, mal de cap, fatiga",
+      "prevencion": "Preservatiu, relacions sexuals sense penetraci\u00f3",
+      "tratamiento": "No hi ha tractament curatiu, per\u00f2 els medicaments poden ajudar a controlar els s\u00edmptomes"
+   },
+   "linfogranuloma_venerico": {
+      "sitomas": "Genitosifilis, inflamaci\u00f3 dels ganglis limf\u00e0tics",
+      "prevencion": "Preservatiu, relacions sexuals sense penetraci\u00f3",
+      "tratamiento": "Antibi\u00f2tics"
+   },
+   "lepra": {
+      "sitomas": "Lesions a la pell, lesions nervioses, lesions oculars",
+      "prevencion": "Preservatiu, relacions sexuals sense penetraci\u00f3",
+      "tratamiento": "Antibi\u00f2tics"
+   },
+   "sifilis_congenita": {
+      "sitomas": "Lesions a la pell, lesions al cervell, lesions als ulls",
+      "prevencion": "Vacunaci\u00f3 de la mare, preservatiu, relacions sexuals sense penetraci\u00f3",
+      "tratamiento": "Antibi\u00f2tics"
+   },
+   "sifilis": {
+      "sitomas": "Llagas genitales, dolor de garganta, fiebre, cansancio.",
+      "prevencion": "Uso de preservativos, relaciones sexuales monog\u00e1micas, pruebas regulares.",
+      "tratamiento": "Antibi\u00f3ticos."
+   },
+   "vph": {
+      "sitomas": "Verrugas genitales, cambios en las c\u00e9lulas del cuello uterino.",
+      "prevencion": "Uso de preservativos, relaciones sexuales monog\u00e1micas, vacunaci\u00f3n.",
+      "tratamiento": "No hay cura, pero se pueden tratar los s\u00edntomas."
+   },
+   "hepatitis_b": {
+      "sitomas": "Fatiga, n\u00e1useas, v\u00f3mitos, dolor abdominal, ictericia.",
+      "prevencion": "Vacunaci\u00f3n, uso de preservativos, relaciones sexuales monog\u00e1micas.",
+      "tratamiento": "No hay cura, pero se puede controlar con medicamentos."
+   },
+   "hepatitis_c": {
+      "sitomas": "Fatiga, n\u00e1useas, v\u00f3mitos, dolor abdominal, ictericia.",
+      "prevencion": "Vacunaci\u00f3n, uso de preservativos, relaciones sexuales monog\u00e1micas.",
+      "tratamiento": "No hay cura, pero se puede tratar con medicamentos."
+   },
+   "vih": {
+      "sitomas": "Fatiga, p\u00e9rdida de peso, fiebre, sudores nocturnos, diarrea.",
+      "prevencion": "Uso de preservativos, relaciones sexuales monog\u00e1micas, pruebas regulares.",
+      "tratamiento": "No hay cura, pero se puede controlar con medicamentos."
+   }
+}
