@@ -1,5 +1,6 @@
 from chatgpt import ChatGPT
 from user import UserManager
+
 class Controller:
 
     def __init__(self):
@@ -17,3 +18,5 @@ class Controller:
         except Exception as e:
             print("Error handle_request: " + str(e))    
         
+
+    
