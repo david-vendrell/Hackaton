@@ -26,7 +26,13 @@ elif inp == "marc":
     name = "marc"
 
 elif inp == "david":
-    name = "david"
+    user = User()
+    user.id = "988592334"
+    user.name =  "david"
+    user.age = 20
+    user.height = 180
+    user.gender = "male"
+    UserManager().save_user(user)
     
 
 elif inp == "javi":

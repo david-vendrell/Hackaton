@@ -149,4 +149,5 @@ No puedes salirte del snipped code y el value de la key debe ser una de las pala
 class Prompts:
     def get_prompt(self, key):
         return prompts[key]
+        return ""
         
