@@ -144,9 +144,6 @@ class Telegram:
 
         return ConversationHandler.END
 
-    async def ask_location(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
-        await update.message.reply_text("Quina es la teva ubicació?")
-        user = update.message.from_user
 
     async def handle_mara(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         user_input = update.message.text.lower()
@@ -176,7 +173,8 @@ class Telegram:
             print(f"Received a message from {user_info.id}: {user_message}")
             response = Controller().handle_request(update.message.text, self.user.id)
         if response == "#ByronLove":
-            self.ask_location()
+            await update.message.reply_text("Quina es la teva ubicació?")
+            
         else:
             await update.message.reply_text(response)
 
