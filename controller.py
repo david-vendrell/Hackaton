@@ -10,7 +10,11 @@ class Controller:
     def handle_request(self, content, id=None):
         try:
             user = UserManager().load_user(id)
-            if content and not user.blocked:
+
+            if user.first_interaction:
+                return "Escriu la comanda /start per començar"
+
+            elif content and not user.blocked:
                 print("\n\n")
                 print(content)
                 classification = ChatGPT().get_classification(user, content)

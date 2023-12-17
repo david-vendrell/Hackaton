@@ -8,6 +8,8 @@ class User:
         self.age = -1
         self.email = ""
         self.blocked = False
+
+        self.first_interaction = True
         
         #Record
         self.record = []
