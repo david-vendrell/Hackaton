@@ -3,13 +3,26 @@ from user import UserManager
 import math
 import location
 import json
-
+import re
 
 class Controller:
 
     def __init__(self):
         pass
 
+    def split_phrase(self, message):
+        try:
+            subfrases = re.split('(\.|\?)', message)
+            # Combinamos cada fragmento con su delimitador correspondiente
+            resultado = [subfrases[i] + (subfrases[i + 1] if i + 1 < len(subfrases) else '') for i in range(0, len(subfrases) - 1, 2)]
+            # Filtramos elementos vacíos en caso de que existan
+            resultado = [s for s in resultado if s]
+            resultado = [frase.replace("¡", ".").replace("¿", ".").replace(".", "") for frase in resultado]
+            resultado = [frase.replace("_", ".") for frase in resultado]
+            return resultado
+        except Exception as e:
+            print("Error split_phrases: " + str(e))
+            
     def distance(self, latitud_1, longitud_1, latitud_2, longitud_2): 
         latitud_1 = math.radians(latitud_1)
         longitud_1 = math.radians(longitud_1)
@@ -71,7 +84,7 @@ class Controller:
                     
                 user.record.append({"role":"user", "content": content})
                 user.record.append({"role":"assistant", "content": answer})
-                return answer
+                return self.split_phrase(answer)
             
             elif user.blocked:
                 return "Envia un correu a suport@hospital.com per més informació"
