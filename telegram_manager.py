@@ -52,25 +52,30 @@ class Telegram:
     def __init__(self, user):
         self.user = user
         self.sender = Sender()
+        self.controller = Controller()
 
 
     # Comando /start
     async def start(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
-
-        user_info = update.effective_user
-        user_message = update.message.text
-        print(f"Received a message from {user_info.id}: {user_message}")
-        self.user.id = user_info.id
-        self.first_interaction = False
-
-        buttons = [[KeyboardButton("Començar")]]
-        await update.message.reply_text(
-            "BENVINGUT al SexEd Bot, de BitsxLaMarató em dic Mara i estic aqui per ajudar-te!\n\n"
-            "Pots cancelar en qualsevol moment escribint la comanda /cancel\n\n"
-            "Ara començarem amb una serie de preguntes per conèixer-te millor",
-            reply_markup=ReplyKeyboardMarkup(buttons, one_time_keyboard=True))
         
-        return ASK_NAME
+        if self.user.first_interaction:
+            user_info = update.effective_user
+            user_message = update.message.text
+            print(f"Received a message from {user_info.id}: {user_message}")
+            self.user.id = user_info.id
+            self.first_interaction = False
+
+            buttons = [[KeyboardButton("Començar")]]
+            await update.message.reply_text(
+                "BENVINGUT al SexEd Bot, de BitsxLaMarató em dic Mara i estic aqui per ajudar-te!\n\n"
+                "Pots cancelar en qualsevol moment escribint la comanda /cancel\n\n"
+                "Ara començarem amb una serie de preguntes per conèixer-te millor",
+                reply_markup=ReplyKeyboardMarkup(buttons, one_time_keyboard=True))
+            
+            return ASK_NAME
+        else:
+            await self.sender.send_message(self.user, "Ja has completat l'onboarding! 👍", update)
+            return ConversationHandler.END
 
 
     async def ask_name(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:

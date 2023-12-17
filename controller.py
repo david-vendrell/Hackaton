@@ -5,6 +5,10 @@ import location
 import json
 import re
 
+from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update, KeyboardButton
+
+from sender import Sender
+
 class Controller:
 
     def __init__(self):
@@ -36,10 +40,9 @@ class Controller:
         return distancia
 
 
-    def nearest_center(self, user ):
+    def nearest_center(self, user):
         latituduser = user.location["la"]
         longituduser = user.location["lo"]
-
         
         latitudesubis = [0.0, 100.0]
         longitudesubis = [0.0, 100.0]
@@ -56,12 +59,12 @@ class Controller:
         return nearest_hospital
         
 
-    def handle_request(self, content, id=None):
+    async def handle_request(self, content, id=None):
         try:
             user = UserManager().load_user(id)
 
             if user.first_interaction:
-                return "Escriu la comanda /start per començar"
+                return ["Escriu la comanda /start per començar"]
 
             if content and not user.blocked:
                 print("\n\n")
@@ -69,9 +72,9 @@ class Controller:
                 classification = ChatGPT().get_classification(user, content)
                     
                 if classification["category"] == 5:
-                    user.status = "location"
-                    UserManager().save_user(user)
-                    return "#ByronLove"
+                    update = Update()
+                    message = ""
+                    await self.sender.send_message(user, message, update)
 
                 print(classification)
                 answer = ChatGPT().get_answer(user, content,str(classification["category"]))
