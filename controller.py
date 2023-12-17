@@ -5,8 +5,6 @@ import location
 import json
 import re
 
-from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update, KeyboardButton
-
 from sender import Sender
 
 class Controller:
@@ -72,9 +70,7 @@ class Controller:
                 classification = ChatGPT().get_classification(user, content)
                     
                 if classification["category"] == 5:
-                    update = Update()
-                    message = ""
-                    await self.sender.send_message(user, message, update)
+                    return "Ens hem adonat que la teva pregunta és una qüestió mèdica; et recomanem que consultis un especialista en aquest tema.\n\nSi ho desitges, podem posar-te en contacte amb un professional"
 
                 print(classification)
                 answer = ChatGPT().get_answer(user, content,str(classification["category"]))
