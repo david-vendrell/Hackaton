@@ -1,0 +1,162 @@
+{
+    "1": {
+        "question": "Com pot afectar la pornografia a l'autoestima en comparar-se amb actors i actrius de la ind\u00fastria?\ud83d\ude33\ud83d\udd0d",
+        "answer1": "Augmenta l'autoestima",
+        "answer2": "No t\u00e9 impacte",
+        "answer3": "Pot generar inseguretat",
+        "answer4": "Millora la confian\u00e7a en un mateix",
+        "correct": "Pot generar inseguretat"
+    },
+    "2": {
+        "question": "Quina de les seg\u00fcents dificultats pot sorgir en vincular-se sexual i afectivament amb altres persones despr\u00e9s de consumir pornografia de manera constant?\ud83e\udd14\u2764\ufe0f",
+        "answer1": "Major facilitat en les relacions",
+        "answer2": "Dificultat per establir vincles emocionals",
+        "answer3": "Millora en la comunicaci\u00f3",
+        "answer4": "Augment de l'empatia",
+        "correct": "Dificultat per establir vincles emocionals"
+    },
+    "3": {
+        "question": "Quin \u00e9s un possible problema relacionat amb la pornografia en termes de disfunci\u00f3 er\u00e8ctil o dificultats d'orgasme?\u26a0\ufe0f\ud83c\udf46",
+        "answer1": "Millora la funci\u00f3 er\u00e8ctil",
+        "answer2": "No t\u00e9 impacte a l'orgasme",
+        "answer3": "Pot contribuir a disfuncions sexuals",
+        "answer4": "Facilita l'orgasme",
+        "correct": "Pot contribuir a disfuncions sexuals"
+    },
+    "4": {
+        "question": "En la pornografia, com es reforcen els estereotips de g\u00e8nere?\ud83d\udc6b\ud83d\udd04",
+        "answer1": "Trencant amb els estereotips",
+        "answer2": "Presentant diversitat de rols de g\u00e8nere",
+        "answer3": "Degrada la dona i la considera un objecte sexual",
+        "answer4": "Promocionant la igualtat de g\u00e8nere",
+        "correct": "Degrada la dona i la considera un objecte sexual"
+    },
+    "5": {
+        "question": "Per qu\u00e8 la pornografia dura amb viol\u00e8ncia pot ser problem\u00e0tica?\ud83d\ude1f\ud83d\udc4a",
+        "answer1": "No t\u00e9 impacte en la percepci\u00f3 de la viol\u00e8ncia",
+        "answer2": "Erotitza i normalitza comportaments violents",
+        "answer3": "Ajuda a entendre la viol\u00e8ncia a la societat",
+        "answer4": "Redueix la freq\u00fc\u00e8ncia de comportaments violents",
+        "correct": "Erotitza i normalitza comportaments violents"
+    },
+    "6": {
+        "question": "Quin podria ser un problema derivat de l'erotitzaci\u00f3 de situacions violentes a la pornografia?\u26a0\ufe0f\ud83d\udd1e",
+        "answer1": "Reducci\u00f3 de la viol\u00e8ncia a la societat",
+        "answer2": "Major consci\u00e8ncia sobre la viol\u00e8ncia",
+        "answer3": "Desensibilitzaci\u00f3 davant de la viol\u00e8ncia",
+        "answer4": "Augment de l'empatia",
+        "correct": "Desensibilitzaci\u00f3 davant de la viol\u00e8ncia"
+    },
+    "7": {
+        "question": "Com pot ser considerada la pornografia com una via de coneixement personal?\ud83e\udd2f\ud83d\udca1",
+        "answer1": "No contribueix a l'autconeixement",
+        "answer2": "Facilita l'exploraci\u00f3 de coneixements sexuals",
+        "answer3": "Limita la comprensi\u00f3 de la sexualitat",
+        "answer4": "No t\u00e9 relaci\u00f3 amb l'autconeixement",
+        "correct": "Facilita l'exploraci\u00f3 de coneixements sexuals"
+    },
+    "8": {
+        "question": "Quin \u00e9s un efecte negatiu de la pornografia en la percepci\u00f3 del cos i l'aparen\u00e7a f\u00edsica?\ud83d\ude23\ud83d\udc59",
+        "answer1": "Millora la autoimatge",
+        "answer2": "Contribueix a l'acceptaci\u00f3 del cos",
+        "answer3": "Pot generar insatisfacci\u00f3 corporal",
+        "answer4": "Promou la diversitat de cossos",
+        "correct": "Pot generar insatisfacci\u00f3 corporal"
+    },
+    "9": {
+        "question": "Com afecta la pornografia a la comunicaci\u00f3 sexual a les parelles?\ud83d\udde3\ufe0f\ud83d\udecc",
+        "answer1": "Facilita la comunicaci\u00f3 oberta",
+        "answer2": "Dificulta l'expressi\u00f3 de desitjos i necessitats",
+        "answer3": "No t\u00e9 impacte en la comunicaci\u00f3",
+        "answer4": "Promou l'empatia",
+        "correct": "Dificulta l'expressi\u00f3 de desitjos i necessitats"
+    },
+    "10": {
+        "question": "Per qu\u00e8 la pornografia pot distorsionar les expectatives sobre el sexe real?\ud83e\udd37\u200d\u2642\ufe0f\ud83d\udcad",
+        "answer1": "Representa fidelment les relacions",
+        "answer2": "Proporciona una visi\u00f3 realista",
+        "answer3": "Pot crear expectatives poc realistes",
+        "answer4": "Contribueix a una comprensi\u00f3 saludable",
+        "correct": "Pot crear expectatives poc realistes"
+    },
+    "11": {
+        "question": "Quin \u00e9s un risc potencial del consum excessiu de pornografia a l'adolesc\u00e8ncia?\u26a0\ufe0f\ud83d\udc66\ud83d\udc67",
+        "answer1": "Major autocontrol emocional",
+        "answer2": "Desenvolupament saludable de la sexualitat",
+        "answer3": "Distorsi\u00f3 de la percepci\u00f3 sobre el sexe",
+        "answer4": "Fortaleixament de l'autoestima",
+        "correct": "Distorsi\u00f3 de la percepci\u00f3 sobre el sexe"
+    },
+    "12": {
+        "question": "Com pot influir la pornografia en la percepci\u00f3 dels rols de g\u00e8nere a les relacions?\ud83d\udc68\u200d\u2764\ufe0f\u200d\ud83d\udc68\ud83d\udd04",
+        "answer1": "Promouent relacions igualit\u00e0ries",
+        "answer2": "Reforc\u0327ant rols tradicionals de g\u00e8nere",
+        "answer3": "Contribuint a la diversitat de rols",
+        "answer4": "No afecta la percepci\u00f3 dels rols de g\u00e8nere",
+        "correct": "Reforc\u0327ant rols tradicionals de g\u00e8nere"
+    },
+    "13": {
+        "question": "Quin \u00e9s un possible efecte del consum freq\u00fcent de pornografia en la satisfacci\u00f3 sexual?\ud83d\ude15\ud83d\udecc",
+        "answer1": "Augment de la satisfacci\u00f3",
+        "answer2": "No t\u00e9 impacte en la satisfacci\u00f3 sexual",
+        "answer3": "Pot conduir a la insatisfacci\u00f3",
+        "answer4": "Millora la intimitat emocional",
+        "correct": "Pot conduir a la insatisfacci\u00f3"
+    },
+    "14": {
+        "question": "Qu\u00e8 pot contribuir al desenvolupament d'una imatge corporal positiva, contrarestant els efectes negatius de la pornografia?\ud83e\udd38\u200d\u2640\ufe0f\ud83e\udd32",
+        "answer1": "Comparar-se constantment amb models a la pornografia",
+        "answer2": "Fomentar l'acceptaci\u00f3 i apreci per la diversitat de cossos",
+        "answer3": "Ignorar la influ\u00e8ncia de la pornografia",
+        "answer4": "Limitar la comunicaci\u00f3 sobre la imatge corporal",
+        "correct": "Fomentar l'acceptaci\u00f3 i apreci per la diversitat de cossos"
+    },
+    "15": {
+        "question": "Com pot la pornografia influir en la percepci\u00f3 de la intimitat emocional en una relaci\u00f3?\ud83d\ude22\ud83d\udc96",
+        "answer1": "Reforc\u0327ant la connexi\u00f3 emocional",
+        "answer2": "Dificultant l'obertura emocional",
+        "answer3": "No influeix en la intimitat emocional",
+        "answer4": "Promocionant la comunicaci\u00f3 afectiva",
+        "correct": "Dificultant l'obertura emocional"
+    },
+    "16": {
+        "question": "Quin \u00e9s un possible efecte de la pornografia en la percepci\u00f3 de la diversitat sexual?\ud83c\udff3\ufe0f\u200d\ud83c\udf08\ud83d\udcad",
+        "answer1": "Contribuir a una visi\u00f3 \u00e0mplia i respectuosa",
+        "answer2": "Limitar la comprensi\u00f3 de la diversitat sexual",
+        "answer3": "Promoure la toler\u00e0ncia",
+        "answer4": "No tenir impacte en la percepci\u00f3",
+        "correct": "Limitar la comprensi\u00f3 de la diversitat sexual"
+    },
+    "17": {
+        "question": "Per qu\u00e8 pot ser important educar sobre els riscos de la pornografia des d'una edat primerenca?\ud83d\udcda\ud83d\udeb8",
+        "answer1": "Per promoure la censura",
+        "answer2": "Per fomentar la curiositat sense restriccions",
+        "answer3": "Per desenvolupar una comprensi\u00f3 cr\u00edtica",
+        "answer4": "No \u00e9s rellevant per a l'educaci\u00f3",
+        "correct": "Per desenvolupar una comprensi\u00f3 cr\u00edtica"
+    },
+    "18": {
+        "question": "Quin \u00e9s un aspecte positiu de l'abordatge educatiu sobre la pornografia a les escoles?\ud83d\udc65\ud83c\udf93",
+        "answer1": "Fomenta el consum sense restriccions",
+        "answer2": "Contribueix a la manca d'informaci\u00f3",
+        "answer3": "Desenvolupa habilitats cr\u00edtiques i consci\u00e8ncia",
+        "answer4": "No t\u00e9 impacte en l'educaci\u00f3",
+        "correct": "Desenvolupa habilitats cr\u00edtiques i consci\u00e8ncia"
+    },
+    "19": {
+        "question": "Per qu\u00e8 la conversa oberta sobre la pornografia a les relacions pot ser beneficiosa?\ud83d\udde8\ufe0f\ud83d\udc91",
+        "answer1": "Fomenta la falta de comunicaci\u00f3",
+        "answer2": "Genera inseguretat a la parella",
+        "answer3": "Promou la comprensi\u00f3 m\u00fatua i la presa de decisions informades",
+        "answer4": "No afecta la qualitat de la relaci\u00f3",
+        "correct": "Promou la comprensi\u00f3 m\u00fatua i la presa de decisions informades"
+    },
+    "20": {
+        "question": "Com pot la pornografia influir en la percepci\u00f3 del consentiment en les relacions sexuals?\u26a0\ufe0f\ud83e\udd1d",
+        "answer1": "Promoguent una comprensi\u00f3 saludable",
+        "answer2": "No afectant la percepci\u00f3 del consentiment",
+        "answer3": "Contribuint a malentesos sobre el consentiment",
+        "answer4": "Reforc\u0327ant la import\u00e0ncia del respecte i la comunicaci\u00f3",
+        "correct": "Contribuint a malentesos sobre el consentiment"
+    }
+}
