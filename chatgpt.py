@@ -69,11 +69,13 @@ class ChatGPT:
         
     def get_disease(self, disease, query):
         try:
+            message = [{"role":"system", "content": "Has de respondre en catalá."}]
+            
             structure = Prompts().get_prompt("prompts", "disease")
             d = Prompts().get_prompt("disease", disease)
             structure += disease + ": Els simptomes son: " + d["sintomas"] + ". Prevencio: " + d["prevencion"] + ". Tractament: " + d["tratamiento"]
             print("Structure: " + structure)
-            message = [
+            message += [
                 {
                     "role":"system", 
                     "content": structure
@@ -87,19 +89,23 @@ class ChatGPT:
         
     def get_protection(self, protecction, query):
         try:
+            message = [{"role":"system", "content": "Has de respondre en catalá."}]
+            
             structure = Prompts().get_prompt("prompts", "disease")
             d = Prompts().get_prompt("protection", protecction)
             structure += "El funcionament es " + d["funcionamiento"] + ", l'eficacia es " + d["eficacia"] + ", els cambis a la regla son " + d["cambios_en_la_regla"] + ", la seva utilitzacio es: " + d["como_se_utiliza"] + ", si es fa un mal us o es trenca: " +  d["mal_uso_o_rotura"] + ", temps sense fertilitat: " + d["tiempo_en_fertilidad"] + ", quan no es pot utilitzar: " + d["cuando_no_utilizarlo"] + ", efectes, neguetius: " + d["efectos_negativos_de_uso"] + ", ventatjes: " +  d["ventajas"] + ", inconvenients: " + d["inconvenientes"] + ", el seu preu es: " + d["precio"]             
             
             print("Structure: " + structure)
-            message = [
+            message += [
                 {
                     "role":"system", 
                     "content": structure
                 }
             ]
             message += [{"role": "user", "content": query}]
-            return self.get_response(message)
-             
+            response = self.get_response(message)
+            return response
+                
+                
         except Exception as e:
             print("Error in get_protection: " + str(e))
