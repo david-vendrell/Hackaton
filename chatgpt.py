@@ -29,6 +29,10 @@ class ChatGPT:
     def _get_structure(self, user, query, category):
         try:
             messages = []
+            if category in["4", "5"]:
+                if user.age < 15: category += ".1"
+                else: category += ".2"
+                     
             structure = Prompts().get_prompt(category) 
             messages = [
                 {
