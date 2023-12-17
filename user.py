@@ -4,12 +4,13 @@ class User:
     def __init__(self):
         self.id = ""
         self.name = ""
-        self.gender = ""
+        self.sex = ""
         self.age = -1
         self.email = ""
         self.blocked = False
 
         self.first_interaction = True
+        self.experience_count = 0
         
         #Record
         self.record = []

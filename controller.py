@@ -47,8 +47,8 @@ class Controller:
         try:
             user = UserManager().load_user(id)
 
-            '''if user.first_interaction:
-                return "Escriu la comanda /start per començar"'''
+            if user.first_interaction:
+                return "Escriu la comanda /start per començar"
 
             if content and not user.blocked:
                 print("\n\n")

@@ -26,6 +26,8 @@ from telegram.ext import (
     ConversationHandler,
     MessageHandler,
     filters,
+    CallbackContext,
+    CallbackQueryHandler
 )
 from user import UserManager, User
 from controller import Controller
@@ -42,7 +44,7 @@ logging.getLogger("httpx").setLevel(logging.WARNING)
 logger = logging.getLogger(__name__)
 
 
-ASK_NAME, ASK_AGE, ASK_GENDER, ASK_EMAIL, END = range(5)
+ASK_NAME, ASK_AGE, ASK_SEX, ASK_EMAIL, END = range(5)
 user = User()
 
 class Telegram:
@@ -63,7 +65,7 @@ class Telegram:
 
         buttons = [[KeyboardButton("Començar")]]
         await update.message.reply_text(
-            "Benvingut al SexEd Bot, em dic Mara i estic aqui per ajudar-te!\n\n"
+            "BENVINGUT al SexEd Bot, de BitsxLaMarató em dic Mara i estic aqui per ajudar-te!\n\n"
             "Pots cancelar en qualsevol moment escribint la comanda /cancel\n\n"
             "Ara començarem amb una serie de preguntes per conèixer-te millor",
             reply_markup=ReplyKeyboardMarkup(buttons, one_time_keyboard=True))
@@ -84,10 +86,10 @@ class Telegram:
         message = "Quina és la teva edat?"
         await self.sender.send_message(user, message, update)
         
-        return ASK_GENDER
+        return ASK_SEX
 
 
-    async def ask_gender(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    async def ask_sex(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
         self.user.age = int(update.message.text)
 
         if self.user.age < 12:
@@ -99,14 +101,14 @@ class Telegram:
 
             return ConversationHandler.END
         else:
-            message = "Quin és el teu gènere?"
+            message = "Quin és el teu sexe?"
             await self.sender.send_message(user, message, update)
         return ASK_EMAIL
 
 
     async def ask_email(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
-        self.user.gender = update.message.text
+        self.user.sex = update.message.text
         message = "Quin és el teu email?"
         await self.sender.send_message(user, message, update)
 
@@ -139,7 +141,7 @@ class Telegram:
         user = update.message.from_user
         logger.info("User %s canceled the conversation.", user.first_name)
         await update.message.reply_text(
-            "Bye! I hope we can talk again some day.", reply_markup=ReplyKeyboardRemove()
+            "Adéu! Gràcies per la teva visita!", reply_markup=ReplyKeyboardRemove()
         )
 
         return ConversationHandler.END
@@ -152,14 +154,34 @@ class Telegram:
         if user_input == "mara":
             buttons = [
                 [KeyboardButton("Questionari")],
-                [KeyboardButton("Com funciona?")]
+                [KeyboardButton("Com funciona?")],
+                [KeyboardButton("Bibliografia")]
             ]
-            message = "Hola, sóc la teva assistent virtual, Mara! 👋\n\n"
+            message = "Hola, sóc Mara, la teva assistent virtual! 👋\n\n"
             message += "Pots preguntar-me qualsevol cosa sobre sexualitat i jo intentaré respondre't de la millor manera possible 🤓\n\n"
             message += "També pots fer click en els botons de sota per accedir a les diferents opcions que tinc per a tu! 👇"
             reply_markup = ReplyKeyboardMarkup(buttons, one_time_keyboard=True)
 
             await self.sender.send_button_message(user, message, reply_markup, update)
+
+        elif user_input == "questionari":
+            self.user.experience_count += 1
+            UserManager().save_user(self.user)
+            await Experiences().handle_button(self.user, "exp_start", update)
+
+        elif user_input == "com funciona?":
+            message = "Hola! :hola: Sóc Mara, un assistent virtual expert en salut sexual i reproductiva. Tens algun dubte sobre temes com ITS, l’ús d’anticonceptius i la pornografia? Doncs a través d’aquest xat et podré ajudar a resoldre tots aquests problemes! :sonrojo:\n\nEscrivint /start podràs començar l’experiència i després d’una breu enquesta ja podràs conversar amb mi.\n\nSi en qualsevol moment vols revisar el menú principal, només cal que escriguis Mara. :+1:\n\nComencem?:sonrisa_burlona:"
+            await self.sender.send_message(user, message, update)
+
+        elif user_input == "bibliografia":
+            message = "Sobre la salut sexual\n\nhttps://salutsexual.sidastudi.org/ca"
+            await self.sender.send_message(user, message, update)
+            time.sleep(5)
+            message = "Com influeix la indústria del porno en la vida sexual de les noves generacions?\n\nhttps://www.ccma.cat/3cat/generacio-porno/"
+            await self.sender.send_message(user, message, update)
+            time.sleep(5)
+            message = "Quin és el teu anticonceptiu ideal?\n\nhttps://decisionscompartides.gencat.cat/ca/decidir-sobre/anticoncepcio/quines_son_les_seves_preferencies/"
+            await self.sender.send_message(user, message, update)
 
 
     async def handle_query(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -170,9 +192,40 @@ class Telegram:
         await update.message.reply_text(response)
 
 
-    async def handle_experience(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-        # We have to call ExperiencesManager to start the experience
-        Experiences().handle_button(user, "exp_start")
+    async def on_button_click(self, update: Update, context: CallbackContext):
+        query = update.callback_query
+        await query.answer()
+        data = query.data
+        user = query.from_user
+
+        experiences = json.load(open("questionari.json"))
+        current_question = experiences[str(self.user.experience_count)]["question"]
+        correct_answer = experiences[str(self.user.experience_count)]["correct"]
+
+        if "correct" in data:
+            response = "CORRECTE! ✅\n\nPregunta: " + current_question + "\nResposta: " + correct_answer
+        else:
+            response = "INCORRECTE! ❌\n\nPregunta: " + current_question + "\n\nResposta: " + correct_answer
+
+        await query.edit_message_text(response)
+
+
+    async def load_user(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+        self.user = UserManager().load_user(self.user.id)
+        message = "Id: " + str(self.user.id) + "\n"
+        message += "Name: " + str(self.user.name) + "\n"
+        message += "Sex: " + str(self.user.sex) + "\n"
+        message += "Age: " + str(self.user.age) + "\n"
+        message += "Email: " + str(self.user.email) + "\n"
+        message += "Blocked: " + str(self.user.blocked) + "\n"
+        message += "First Interaction: " + str(self.user.first_interaction) + "\n"
+        message += "Experience Count: " + str(self.user.experience_count) + "\n"
+        message += "Record: " + str(self.user.record)
+
+        await self.sender.send_message(user, message, update)
+
+
+        
 
 def main() -> None:
     """Run bot."""
@@ -182,21 +235,23 @@ def main() -> None:
     # Create the Application and pass it your bot's token.
     application = Application.builder().token("6555434306:AAEMzna2BPLeoC7ggyauyWFIZFW4ut3FKXI").build()
     
+    # Experiences Handlers
+    exp_command_handler = CommandHandler('exp', telegram.handle_experience)
+    application.add_handler(exp_command_handler)
 
-    # Mara command handler
-    mara_message_handler = MessageHandler(filters.Regex(r'(?i)\bmara\b'), telegram.handle_mara)
-    application.add_handler(mara_message_handler)
+    application.add_handler(CallbackQueryHandler(telegram.on_button_click))
 
-    questionari_handler = MessageHandler(filters.Regex(r'(?i)\bquestionari\b'), telegram.handle_experience)
+    # Mara handler
+    questionari_handler = MessageHandler(filters.Regex(r'(?i)\b(questionari|bibliografia|mara)\b'), telegram.handle_mara)
     application.add_handler(questionari_handler)
 
-    # Add conversation handler with the states GENDER, PHOTO, LOCATION and BIO --> ONBOARDING
+    # Onboarding Handler
     onboarding_handler = ConversationHandler(
     entry_points=[CommandHandler("start", telegram.start)],
     states={
         ASK_NAME: [MessageHandler(filters.TEXT & ~filters.COMMAND, telegram.ask_name)],
         ASK_AGE: [MessageHandler(filters.TEXT & ~filters.COMMAND, telegram.ask_age)],
-        ASK_GENDER: [MessageHandler(filters.TEXT & ~filters.COMMAND, telegram.ask_gender)],
+        ASK_SEX: [MessageHandler(filters.TEXT & ~filters.COMMAND, telegram.ask_sex)],
         ASK_EMAIL: [MessageHandler(filters.TEXT & ~filters.COMMAND, telegram.ask_email)],
         END: [MessageHandler(filters.TEXT & ~filters.COMMAND, telegram.end)],
     },
@@ -205,6 +260,10 @@ def main() -> None:
 
     # Handles conversation with AI
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, telegram.handle_query))
+
+    # Dev commands
+    user_command_handler = CommandHandler('user', telegram.load_user)
+    application.add_handler(user_command_handler)
     
 
     # Run the bot until the user presses Ctrl-C
