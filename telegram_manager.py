@@ -125,7 +125,7 @@ class Telegram:
         
         time.sleep(2)
         
-        message = "Per qualsevol dubte, pots escriure en aquest mateix xat la paraula *Mara*, la teva assistent personal"
+        message = "Per qualsevol dubte, pots escriure en aquest mateix xat la paraula Mara, la teva assistent personal"
         await self.sender.send_message(user, message, update)
 
         time.sleep(2)
