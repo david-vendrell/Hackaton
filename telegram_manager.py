@@ -65,9 +65,9 @@ class Telegram:
 
         buttons = [[KeyboardButton("Començar")]]
         await update.message.reply_text(
-            "BENVINGUT al SexEd Bot, de BitsxLaMarató em dic Mara i estic aqui per ajudar-te!\n\n"
+            "BENVINGUT al SexEd Bot, de BitsxLaMarató! 👋Em dic Mara i estic aquí per ajudar-te! 😊\n\n"
             "Pots cancelar en qualsevol moment escribint la comanda /cancel\n\n"
-            "Ara començarem amb una serie de preguntes per conèixer-te millor",
+            "Ara començarem amb una sèrie de preguntes per conèixer-te millor. 👍",
             reply_markup=ReplyKeyboardMarkup(buttons, one_time_keyboard=True))
         
         return ASK_NAME
