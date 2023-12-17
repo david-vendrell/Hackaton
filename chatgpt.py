@@ -29,11 +29,11 @@ class ChatGPT:
     def _get_structure(self, user, query, category):
         try:
             messages = []
-            if category in["4", "5"]:
+            if category in ["4", "5"]:
                 if user.age < 15: category += ".1"
                 else: category += ".2"
                      
-            structure = Prompts().get_prompt(category) 
+            structure = Prompts().get_prompt("prompts", category) 
             messages = [
                 {
                     "role": "system",
@@ -67,4 +67,19 @@ class ChatGPT:
         except Exception as e:
             print("Error in get_classification: " + str(e))
         
+    def get_desease(self, desease, query):
+        try:
+            structure = Prompts().get_prompt("prompts", "desease")
+            d = Prompts().get_prompt("desease", desease)
+            structure += desease + ": Los sintomas son: " + d["sintomas"] + ". Prevencion: " + d["prevenvion"] + ". Tratamiento: " + d["tratamiento"]
+            message = [
+                {
+                    "role":"system", 
+                    "content": structure
+                }
+            ]
+            message += [{"role": "user", "content": query}]
+            message = self._get_structure(message)
+        except Exception as e:
+            print("Error in get_deasea: " + str(e))
         
