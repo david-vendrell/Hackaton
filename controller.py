@@ -2,6 +2,7 @@ from chatgpt import ChatGPT
 from user import UserManager
 import math
 import location
+import json
 
 
 class Controller:
@@ -46,10 +47,10 @@ class Controller:
         try:
             user = UserManager().load_user(id)
 
-            if user.first_interaction:
-                return "Escriu la comanda /start per començar"
+            '''if user.first_interaction:
+                return "Escriu la comanda /start per començar"'''
 
-            elif content and not user.blocked:
+            if content and not user.blocked:
                 print("\n\n")
                 print(content)
                 classification = ChatGPT().get_classification(user, content)
@@ -59,7 +60,10 @@ class Controller:
                 print(classification)
                 answer = ChatGPT().get_answer(user, content,str(classification["category"]))
                 if classification["category"] == 1:
-                    answer = ChatGPT().get_desease(user, answer["desease"])
+                    answer = ChatGPT().get_disease(json.loads(answer)["disease"], content)
+                elif classification["category"] == 3:
+                    answer = ChatGPT().get_protection(json.loads(answer)["protection"], content)
+                    
                     
                 user.record.append({"role":"user", "content": content})
                 user.record.append({"role":"assistant", "content": answer})

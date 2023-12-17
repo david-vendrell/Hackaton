@@ -16,6 +16,7 @@ while inp not in ["javi","marc","david","marcos"]:
 
 if inp == "marcos":
     user = User()
+    user.id = ""
     user.name =  "marcos"
     user.age = 20
     user.height = 180

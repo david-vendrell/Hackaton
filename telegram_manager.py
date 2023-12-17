@@ -121,12 +121,12 @@ class Telegram:
         message = "Gràcies per completar l'onboarding 🎉"
         await self.sender.send_message(user, message, update)
         
-        time.sleep(5)
+        time.sleep(2)
         
         message = "Per qualsevol dubte, pots escriure en aquest mateix xat la paraula *Mara*, la teva assistent personal"
         await self.sender.send_message(user, message, update)
 
-        time.sleep(5)
+        time.sleep(2)
         
         message = "Prova a preguntar qualsevol cosa aqui mateix! 👇"
         await self.sender.send_message(user, message, update)

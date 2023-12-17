@@ -1,6 +1,6 @@
 import json
 
-desease = {
+disease = {
         "virus_del_papiloma_huma": {
                 "sintomas": "Lesions a la pell i les mucoses dels genitals, com ara verrues genitals, c\u00e0ncer de coll uter\u00ed, c\u00e0ncer de penis i altres c\u00e0ncers genitals",
                 "prevencion": "Vacunaci\u00f3, preservatiu, relacions sexuals sense penetraci\u00f3",
@@ -437,7 +437,7 @@ Pertenece a esta categoría todo mensaje enviado por el user que no pertenezca a
 
         ------------
         El formato tiene que ser únicamente el snipet code con un json con una key 'category' y un integer con la opción clasificada. No te salgas del snippet code.''',    
-    "1": '''A partir del mensaje del usuario busca que enfermedad es la  más parecida a la que se esta preguntando de las siguientes y solo vas a devolver las palabras siguientes en un json con key = "desease" y value = una de la siguientes:
+    "1": '''A partir del mensaje del usuario busca que enfermedad es la  más parecida a la que se esta preguntando de las siguientes y solo vas a devolver las palabras siguientes en un json con key = "disease" y value = una de la siguientes:
 "virus_del_papiloma_huma", "chlamydia", "gonorrea", "sifilis", "tricomoniasis", "herpes_genital", "citomegalovirus", "infecció_por_clamídia_pelvi", "síndrome_de_herpes_toxico", "linfogranuloma_venerico", "lepra", "sifilis_congenita", "sifilis", "vph", "hepatitis_b", "hepatitis_c", "vih".
 En caso de que no se encuentre ningun caso que coincida con la pregunta, el value = "error".
 No puedes salirte del snipped code y el value de la key debe ser una de las palabras propuestas.''',
@@ -474,13 +474,13 @@ No puedes salirte del snipped code y el value de la key debe ser una de las pala
     ''',
     "6": '''En este caso responder al user con un mensaje de que “Solo respondo mensajes relacionados con la salud sexual y reproductiva”, o algún mensaje parecido a esto.
     ''',
-    "desease": '''Teniendo en cuenta la enfermedad de la que estamos informando, utiliza su informacion como sintomas, prevencion y tratamiento e informacion extra (maximo 200 palabras de informacion extra) para responder la pregunta sobre el tema formulada por el usuario. La respuesta tiene que ser un texto informativo que resuelva e informe de manera objetiva la pregunta del usuario. Recuerdale al usuario que en casos de tener simptomas o tener consultas mas complejas y personales debe acudir a un medico de manera presencial (solo recordar y enviar este recordatorio si no lo has enviado en los ultimos 3 mensajes).
+    "disease": '''Teniendo en cuenta la enfermedad de la que estamos informando, utiliza su informacion como sintomas, prevencion y tratamiento e informacion extra (maximo 200 palabras de informacion extra) para responder la pregunta sobre el tema formulada por el usuario. La respuesta tiene que ser un texto informativo que resuelva e informe de manera objetiva la pregunta del usuario. Recuerdale al usuario que en casos de tener simptomas o tener consultas mas complejas y personales debe acudir a un medico de manera presencial (solo recordar y enviar este recordatorio si no lo has enviado en los ultimos 3 mensajes).
 No puedes salirte del snipped code.'''
 }
 
 class Prompts:
     def get_prompt(self, type, key):
         if type == "prompts": return prompts[key]
-        elif type == "desease": return desease[key]
+        elif type == "disease": return disease[key]
         return protection[key]
         

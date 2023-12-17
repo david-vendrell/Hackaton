@@ -67,11 +67,12 @@ class ChatGPT:
         except Exception as e:
             print("Error in get_classification: " + str(e))
         
-    def get_desease(self, desease, query):
+    def get_disease(self, disease, query):
         try:
-            structure = Prompts().get_prompt("prompts", "desease")
-            d = Prompts().get_prompt("desease", desease)
-            structure += desease + ": Los sintomas son: " + d["sintomas"] + ". Prevencion: " + d["prevenvion"] + ". Tratamiento: " + d["tratamiento"]
+            structure = Prompts().get_prompt("prompts", "disease")
+            d = Prompts().get_prompt("disease", disease)
+            structure += disease + ": Els simptomes son: " + d["sintomas"] + ". Prevencio: " + d["prevencion"] + ". Tractament: " + d["tratamiento"]
+            print("Structure: " + structure)
             message = [
                 {
                     "role":"system", 
@@ -79,7 +80,26 @@ class ChatGPT:
                 }
             ]
             message += [{"role": "user", "content": query}]
-            message = self._get_structure(message)
+            return self.get_response(message)
+             
         except Exception as e:
             print("Error in get_deasea: " + str(e))
         
+    def get_protection(self, protecction, query):
+        try:
+            structure = Prompts().get_prompt("prompts", "disease")
+            d = Prompts().get_prompt("protection", protecction)
+            structure += "El funcionament es " + d["funcionamiento"] + ", l'eficacia es " + d["eficacia"] + ", els cambis a la regla son " + d["cambios_en_la_regla"] + ", la seva utilitzacio es: " + d["como_se_utiliza"] + ", si es fa un mal us o es trenca: " +  d["mal_uso_o_rotura"] + ", temps sense fertilitat: " + d["tiempo_en_fertilidad"] + ", quan no es pot utilitzar: " + d["cuando_no_utilizarlo"] + ", efectes, neguetius: " + d["efectos_negativos_de_uso"] + ", ventatjes: " +  d["ventajas"] + ", inconvenients: " + d["inconvenientes"] + ", el seu preu es: " + d["precio"]             
+            
+            print("Structure: " + structure)
+            message = [
+                {
+                    "role":"system", 
+                    "content": structure
+                }
+            ]
+            message += [{"role": "user", "content": query}]
+            return self.get_response(message)
+             
+        except Exception as e:
+            print("Error in get_protection: " + str(e))
