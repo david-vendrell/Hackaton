@@ -104,7 +104,7 @@ class ChatGPT:
             ]
             message += [{"role": "user", "content": query}]
             response = self.get_response(message)
-            if "[" in response:
+            return response
                 
                 
         except Exception as e:

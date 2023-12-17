@@ -69,7 +69,6 @@ class Controller:
                 classification = ChatGPT().get_classification(user, content)
                     
                 if classification["category"] == 5:
-                    ask_location()
                     user.status = "location"
                     UserManager().save_user(user)
                     return "#ByronLove"
