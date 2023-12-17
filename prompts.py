@@ -2,82 +2,82 @@ import json
 
 desease = {
         "virus_del_papiloma_huma": {
-                "sitomas": "Lesions a la pell i les mucoses dels genitals, com ara verrues genitals, c\u00e0ncer de coll uter\u00ed, c\u00e0ncer de penis i altres c\u00e0ncers genitals",
+                "sintomas": "Lesions a la pell i les mucoses dels genitals, com ara verrues genitals, c\u00e0ncer de coll uter\u00ed, c\u00e0ncer de penis i altres c\u00e0ncers genitals",
                 "prevencion": "Vacunaci\u00f3, preservatiu, relacions sexuals sense penetraci\u00f3",
                 "tratamiento": "Vacunaci\u00f3, tractament amb cremes o medicaments orals"
         },
         "chlamydia": {
-                "sitomas": "Secreci\u00f3n vaginal, dolor al orinar, ardor al orinar.",
+                "sintomas": "Secreci\u00f3n vaginal, dolor al orinar, ardor al orinar.",
                 "prevencion": "Uso de preservativos, relaciones sexuales monog\u00e1micas, pruebas regulares.",
                 "tratamiento": "Antibi\u00f3ticos."
         },
         "gonorrea": {
-                "sitomas": "Secreci\u00f3n vaginal o uretral, dolor al orinar.",
+                "sintomas": "Secreci\u00f3n vaginal o uretral, dolor al orinar.",
                 "prevencion": "Uso de preservativos, relaciones sexuales monog\u00e1micas, pruebas regulares.",
                 "tratamiento": "Antibi\u00f3ticos."
         },
         "tricomoniasis": {
-                "sitomas": "Secreci\u00f3n vaginal amarillenta o verdosa, picor vaginal, dolor al orinar.",
+                "sintomas": "Secreci\u00f3n vaginal amarillenta o verdosa, picor vaginal, dolor al orinar.",
                 "prevencion": "Uso de preservativos, relaciones sexuales monog\u00e1micas, pruebas regulares.",
                 "tratamiento": "Antibi\u00f3ticos."
         },
         "herpes_genital": {
-                "sitomas": "Llagas genitales, dolor al orinar, picor genital.",
+                "sintomas": "Llagas genitales, dolor al orinar, picor genital.",
                 "prevencion": "Uso de preservativos, relaciones sexuales monog\u00e1micas.",
                 "tratamiento": "No hay cura, pero se pueden tratar los s\u00edntomas."
         },
         "citomegalovirus": {
-                "sitomas": "S\u00edmptomes lleus o inexistents, per\u00f2 pot causar infeccions m\u00e9s greus en persones immunodeprimides",
+                "sintomas": "S\u00edmptomes lleus o inexistents, per\u00f2 pot causar infeccions m\u00e9s greus en persones immunodeprimides",
                 "prevencion": "Preservatiu, relacions sexuals sense penetraci\u00f3",
                 "tratamiento": "No hi ha tractament curatiu, per\u00f2 els medicaments poden ajudar a controlar els s\u00edmptomes"
         },
         "infeccion_por_clamidia_pelvi": {
-                "sitomas": "Dolor abdominal, febre, secrecions vaginals, dolor a la micci\u00f3",
+                "sintomas": "Dolor abdominal, febre, secrecions vaginals, dolor a la micci\u00f3",
                 "prevencion": "Preservatiu, relacions sexuals sense penetraci\u00f3",
                 "tratamiento": "Antibi\u00f2tics"
         },
         "sindrome_de_herpes_toxico": {
-                "sitomas": "Erupci\u00f3 cut\u00e0nia amb ampolles, febre, mal de cap, fatiga",
+                "sintomas": "Erupci\u00f3 cut\u00e0nia amb ampolles, febre, mal de cap, fatiga",
                 "prevencion": "Preservatiu, relacions sexuals sense penetraci\u00f3",
                 "tratamiento": "No hi ha tractament curatiu, per\u00f2 els medicaments poden ajudar a controlar els s\u00edmptomes"
         },
         "linfogranuloma_venerico": {
-                "sitomas": "Genitosifilis, inflamaci\u00f3 dels ganglis limf\u00e0tics",
+                "sintomas": "Genitosifilis, inflamaci\u00f3 dels ganglis limf\u00e0tics",
                 "prevencion": "Preservatiu, relacions sexuals sense penetraci\u00f3",
                 "tratamiento": "Antibi\u00f2tics"
         },
         "lepra": {
-                "sitomas": "Lesions a la pell, lesions nervioses, lesions oculars",
+                "sintomas": "Lesions a la pell, lesions nervioses, lesions oculars",
                 "prevencion": "Preservatiu, relacions sexuals sense penetraci\u00f3",
                 "tratamiento": "Antibi\u00f2tics"
         },
         "sifilis_congenita": {
-                "sitomas": "Lesions a la pell, lesions al cervell, lesions als ulls",
+                "sintomas": "Lesions a la pell, lesions al cervell, lesions als ulls",
                 "prevencion": "Vacunaci\u00f3 de la mare, preservatiu, relacions sexuals sense penetraci\u00f3",
                 "tratamiento": "Antibi\u00f2tics"
         },
         "sifilis": {
-                "sitomas": "Llagas genitales, dolor de garganta, fiebre, cansancio.",
+                "sintomas": "Llagas genitales, dolor de garganta, fiebre, cansancio.",
                 "prevencion": "Uso de preservativos, relaciones sexuales monog\u00e1micas, pruebas regulares.",
                 "tratamiento": "Antibi\u00f3ticos."
         },
         "vph": {
-                "sitomas": "Verrugas genitales, cambios en las c\u00e9lulas del cuello uterino.",
+                "sintomas": "Verrugas genitales, cambios en las c\u00e9lulas del cuello uterino.",
                 "prevencion": "Uso de preservativos, relaciones sexuales monog\u00e1micas, vacunaci\u00f3n.",
                 "tratamiento": "No hay cura, pero se pueden tratar los s\u00edntomas."
         },
         "hepatitis_b": {
-                "sitomas": "Fatiga, n\u00e1useas, v\u00f3mitos, dolor abdominal, ictericia.",
+                "sintomas": "Fatiga, n\u00e1useas, v\u00f3mitos, dolor abdominal, ictericia.",
                 "prevencion": "Vacunaci\u00f3n, uso de preservativos, relaciones sexuales monog\u00e1micas.",
                 "tratamiento": "No hay cura, pero se puede controlar con medicamentos."
         },
         "hepatitis_c": {
-                "sitomas": "Fatiga, n\u00e1useas, v\u00f3mitos, dolor abdominal, ictericia.",
+                "sintomas": "Fatiga, n\u00e1useas, v\u00f3mitos, dolor abdominal, ictericia.",
                 "prevencion": "Vacunaci\u00f3n, uso de preservativos, relaciones sexuales monog\u00e1micas.",
                 "tratamiento": "No hay cura, pero se puede tratar con medicamentos."
         },
         "vih": {
-                "sitomas": "Fatiga, p\u00e9rdida de peso, fiebre, sudores nocturnos, diarrea.",
+                "sintomas": "Fatiga, p\u00e9rdida de peso, fiebre, sudores nocturnos, diarrea.",
                 "prevencion": "Uso de preservativos, relaciones sexuales monog\u00e1micas, pruebas regulares.",
                 "tratamiento": "No hay cura, pero se puede controlar con medicamentos."
         },
@@ -443,6 +443,17 @@ En caso de que no se encuentre ningun caso que coincida con la pregunta, el valu
 No puedes salirte del snipped code y el value de la key debe ser una de las palabras propuestas.''',
     
     "2": '''
+A partir del mensaje del usuario sobre pornografía, responde la pregunta de manera objetiva, educativa e informativa, basandote en las siguientes bases de conocimiento:
+La pornografia impacta sobre la autoestima ya que la persona que la consume se compara con lo que ve. 
+La persona puede tener dificultades para vincularse sexual y afectivamente con otras personas.
+Pueden haber casos de disfuncion erectil o dificultades para llegar al orgasmo.
+Se refuerzan los estereotipos de genero donde las mujeres se consideran objetos sexuales y estan en posiciones denigradas.
+En algunos casos se muestra porno duro donde hay violencia juntamente con sexo. Esto es preocupante ya que se puede llegar a erotizar y normalizar en situaciones de la vida cuotidiana. Esto es sobretodo muy importante de concienciar a adolescentes.
+Aunque haya todos estos riesgos y aspectos negativos, la pornografia tambien tiene una cara buena, ya que con un buen uso puede ser una fuente de autoconocimiento.
+
+A parte de responder preguntas, de vez en cuando recuerda que existe un cuestionario de pornografia para poder educarse correctamente sobre el ambito. Esta parte no la vas a repetir si ya lo has enviado en el mensaje anterior.
+
+No puedes salirte del snipped code y el value de la key debe ser una de las palabras propuestas.
     ''',
     "3": '''Eres un experto que solo va a responder preguntas relacionadas con anticonceptivos. En ningún momento te vas a arriesgar dando consejos de medicación, sino que vas a ser el maximo de objetivo respondiendo en todo momento las preguntas del user, y recomendando que en caso que tener patologías parecidas acudir a una consulta con un médico.
 
@@ -463,13 +474,13 @@ No puedes salirte del snipped code y el value de la key debe ser una de las pala
     ''',
     "6": '''En este caso responder al user con un mensaje de que “Solo respondo mensajes relacionados con la salud sexual y reproductiva”, o algún mensaje parecido a esto.
     ''',
-    "desease": '''
-    
-    '''
+    "desease": '''Teniendo en cuenta la enfermedad de la que estamos informando, utiliza su informacion como sintomas, prevencion y tratamiento e informacion extra (maximo 200 palabras de informacion extra) para responder la pregunta sobre el tema formulada por el usuario. La respuesta tiene que ser un texto informativo que resuelva e informe de manera objetiva la pregunta del usuario. Recuerdale al usuario que en casos de tener simptomas o tener consultas mas complejas y personales debe acudir a un medico de manera presencial (solo recordar y enviar este recordatorio si no lo has enviado en los ultimos 3 mensajes).
+No puedes salirte del snipped code.'''
 }
 
 class Prompts:
-    def get_prompt(self, key):
-        return prompts[key]
-        return ""
+    def get_prompt(self, type, key):
+        if type == "prompts": return prompts[key]
+        elif type == "desease": return desease[key]
+        return protection[key]
         

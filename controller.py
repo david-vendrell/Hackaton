@@ -53,10 +53,14 @@ class Controller:
                 print("\n\n")
                 print(content)
                 classification = ChatGPT().get_classification(user, content)
-                if classification["category"] == 5 :
+                    
+                if classification["category"] == 5:
                     self.nearest_center()
                 print(classification)
                 answer = ChatGPT().get_answer(user, content,str(classification["category"]))
+                if classification["category"] == 1:
+                    answer = ChatGPT().get_desease(user, answer["desease"])
+                    
                 user.record.append({"role":"user", "content": content})
                 user.record.append({"role":"assistant", "content": answer})
                 return answer
