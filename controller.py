@@ -1,5 +1,8 @@
 from chatgpt import ChatGPT
 from user import UserManager
+import math
+import location
+
 
 class Controller:
 
@@ -47,7 +50,7 @@ class Controller:
                 print(content)
                 classification = ChatGPT().get_classification(user, content)
                 if classification["category"] == 5 :
-                    nearest_center()
+                    self.nearest_center()
                 print(classification)
                 answer = ChatGPT().get_answer(user, content,str(classification["category"]))
                 user.record.append({"role":"user", "content": content})
