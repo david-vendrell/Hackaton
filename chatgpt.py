@@ -4,7 +4,7 @@ import json
 from prompts import Prompts
 
 openai.organization = "org-7Xlzvwkj0VnvG7N6xeNY1RN4"
-openai.api_key = "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"
+openai.api_key = "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"
 
 class ChatGPT: 
 
