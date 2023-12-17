@@ -176,7 +176,9 @@ class Telegram:
             await update.message.reply_text("Quina es la teva ubicació?")
             
         else:
-            await update.message.reply_text(response)
+            print(response)
+            for res in response:
+                await update.message.reply_text(res)
 
 
     async def handle_experience(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:

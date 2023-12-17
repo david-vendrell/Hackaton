@@ -80,7 +80,7 @@ class Controller:
                 elif classification["category"] == 3:
                     answer = ChatGPT().get_protection(json.loads(answer)["protection"], content)
                     
-                    
+                print("ANSWER: " + answer + "\n")
                 user.record.append({"role":"user", "content": content})
                 user.record.append({"role":"assistant", "content": answer})
                 return self.split_phrase(answer)
