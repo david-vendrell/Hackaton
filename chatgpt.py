@@ -6,8 +6,9 @@ from prompts import Prompts
 with open('secrets.json', 'r') as file:
     data = json.load(file)
     api_key = data['api_key']
+    org_key = data["organization_key"]
 
-openai.organization = "org-7Xlzvwkj0VnvG7N6xeNY1RN4"
+openai.organization = org_key
 openai.api_key = api_key
 
 class ChatGPT: 
