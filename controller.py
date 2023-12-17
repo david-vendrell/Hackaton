@@ -23,9 +23,9 @@ class Controller:
         return distancia
 
 
-    def nearest_center(self):
-        latituduser = location.latitude
-        longituduser = location.longitude
+    def nearest_center(self, user ):
+        latituduser = user.location["la"]
+        longituduser = user.location["lo"]
 
         
         latitudesubis = [0.0, 100.0]
@@ -56,7 +56,11 @@ class Controller:
                 classification = ChatGPT().get_classification(user, content)
                     
                 if classification["category"] == 5:
-                    self.nearest_center()
+                    ask_location()
+                    user.status = "location"
+                    UserManager().save_user(user)
+                    return "#ByronLove"
+
                 print(classification)
                 answer = ChatGPT().get_answer(user, content,str(classification["category"]))
                 if classification["category"] == 1:

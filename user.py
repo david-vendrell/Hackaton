@@ -7,9 +7,12 @@ class User:
         self.gender = ""
         self.age = -1
         self.email = ""
+        self.location = {"la":0, "lo":0}
         self.blocked = False
 
         self.first_interaction = True
+
+        self.status = "start"
         
         #Record
         self.record = []
