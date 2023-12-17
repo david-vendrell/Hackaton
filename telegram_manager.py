@@ -74,7 +74,7 @@ class Telegram:
 
 
     async def ask_name(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
-        message = "Com et dius?"
+        message = "Com et dius? 🤔"
         await self.sender.send_message(user, message, update)
         
         return ASK_AGE
@@ -83,7 +83,7 @@ class Telegram:
     async def ask_age(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
         self.user.name = update.message.text
 
-        message = "Quina és la teva edat?"
+        message = "Quina és la teva edat? 📊"
         await self.sender.send_message(user, message, update)
         
         return ASK_SEX
@@ -93,7 +93,7 @@ class Telegram:
         self.user.age = int(update.message.text)
 
         if self.user.age < 12:
-            message = "Ho sentim, aquest assistent no pot ser utilitzat per menors de 12 anys"
+            message = "Ho sentim, aquest assistent no pot ser utilitzat per menors de 12 anys 😔"
             await self.sender.send_message(user, message, update)
 
             self.user.blocked = True
@@ -101,7 +101,7 @@ class Telegram:
 
             return ConversationHandler.END
         else:
-            message = "Quin és el teu sexe?"
+            message = "Quin és el teu sexe? 🤗"
             await self.sender.send_message(user, message, update)
         return ASK_EMAIL
 
@@ -109,7 +109,7 @@ class Telegram:
     async def ask_email(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
         self.user.sex = update.message.text
-        message = "Quin és el teu email?"
+        message = "Quin és el teu email? 📧"
         await self.sender.send_message(user, message, update)
 
         return END
@@ -170,7 +170,7 @@ class Telegram:
             await Experiences().handle_button(self.user, "exp_start", update)
 
         elif user_input == "com funciona?":
-            message = "Hola! :hola: Sóc Mara, un assistent virtual expert en salut sexual i reproductiva. Tens algun dubte sobre temes com ITS, l’ús d’anticonceptius i la pornografia? Doncs a través d’aquest xat et podré ajudar a resoldre tots aquests problemes! :sonrojo:\n\nEscrivint /start podràs començar l’experiència i després d’una breu enquesta ja podràs conversar amb mi.\n\nSi en qualsevol moment vols revisar el menú principal, només cal que escriguis Mara. :+1:\n\nComencem?:sonrisa_burlona:"
+            message = "Hola! 👋 Sóc Mara, un assistent virtual expert en salut sexual i reproductiva. Tens algun dubte sobre temes com ITS, l’ús d’anticonceptius i la pornografia? Doncs a través d’aquest xat et podré ajudar a resoldre tots aquests problemes! 😊\n\nEscrivint /start podràs començar l’experiència i després d’una breu enquesta ja podràs conversar amb mi.\n\nSi en qualsevol moment vols revisar el menú principal, només cal que escriguis Mara 👍\n\nComencem? 😄"
             await self.sender.send_message(user, message, update)
 
         elif user_input == "bibliografia":
@@ -195,7 +195,7 @@ class Telegram:
             print(f"Received a message from {user_info.id}: {user_message}")
             response = Controller().handle_request(update.message.text, self.user.id)
         if response == "#ByronLove":
-            await update.message.reply_text("Quina es la teva ubicació?")
+            await update.message.reply_text("Quina es la teva ubicació? 📍")
             
         else:
             await update.message.reply_text(response)
@@ -243,15 +243,11 @@ def main() -> None:
 
     # Create the Application and pass it your bot's token.
     application = Application.builder().token("6555434306:AAEMzna2BPLeoC7ggyauyWFIZFW4ut3FKXI").build()
-    
-    # Experiences Handlers
-    exp_command_handler = CommandHandler('exp', telegram.handle_experience)
-    application.add_handler(exp_command_handler)
 
     application.add_handler(CallbackQueryHandler(telegram.on_button_click))
 
     # Mara handler
-    questionari_handler = MessageHandler(filters.Regex(r'(?i)\b(questionari|bibliografia|mara)\b'), telegram.handle_mara)
+    questionari_handler = MessageHandler(filters.Regex(r'(?i)\b(questionari|bibliografia|mara|com funciona?)\b'), telegram.handle_mara)
     application.add_handler(questionari_handler)
 
     # Onboarding Handler
@@ -273,6 +269,10 @@ def main() -> None:
     # Dev commands
     user_command_handler = CommandHandler('user', telegram.load_user)
     application.add_handler(user_command_handler)
+
+    # Experiences Handlers
+    # exp_command_handler = CommandHandler('exp', telegram.handle_experience)
+    # application.add_handler(exp_command_handler)
     
 
     # Run the bot until the user presses Ctrl-C
