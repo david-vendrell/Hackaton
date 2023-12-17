@@ -3,8 +3,12 @@ import json
 
 from prompts import Prompts
 
+with open('secrets.json', 'r') as file:
+    data = json.load(file)
+    api_key = data['api_key']
+
 openai.organization = "org-7Xlzvwkj0VnvG7N6xeNY1RN4"
-openai.api_key = "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"
+openai.api_key = api_key
 
 class ChatGPT: 
 
