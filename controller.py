@@ -5,8 +5,6 @@ import location
 import json
 import re
 
-from sender import Sender
-
 class Controller:
 
     def __init__(self):
@@ -38,9 +36,10 @@ class Controller:
         return distancia
 
 
-    def nearest_center(self, user):
+    def nearest_center(self, user ):
         latituduser = user.location["la"]
         longituduser = user.location["lo"]
+
         
         latitudesubis = [0.0, 100.0]
         longitudesubis = [0.0, 100.0]
@@ -57,7 +56,7 @@ class Controller:
         return nearest_hospital
         
 
-    async def handle_request(self, content, id=None):
+    def handle_request(self, content, id=None):
         try:
             user = UserManager().load_user(id)
 
@@ -70,7 +69,7 @@ class Controller:
                 classification = ChatGPT().get_classification(user, content)
                     
                 if classification["category"] == 5:
-                    return "Ens hem adonat que la teva pregunta és una qüestió mèdica; et recomanem que consultis un especialista en aquest tema.\n\nSi ho desitges, podem posar-te en contacte amb un professional"
+                    return ["Ens hem adonat que la teva pregunta és una qüestió mèdica; et recomanem que consultis un especialista en aquest tema.\n\nSi ho desitges, podem posar-te en contacte amb un professional"]
 
                 print(classification)
                 answer = ChatGPT().get_answer(user, content,str(classification["category"]))
@@ -85,7 +84,7 @@ class Controller:
                 return self.split_phrase(answer)
             
             elif user.blocked:
-                return "Envia un correu a suport@hospital.com per més informació"
+                return ["Envia un correu a suport@hospital.com per més informació"]
                 
         except Exception as e:
             print("Error handle_request: " + str(e))    
